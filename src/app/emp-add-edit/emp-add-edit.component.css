@@ -1,0 +1,16 @@
+.content{
+    padding-top: 10px;
+}
+div[fxLayout="row"]{
+    display: flex;
+    gap: 10px;
+}
+mat-form-field {
+    width: 100% !important;
+}
+.action{
+    padding: 0px 25px 20px;
+}
+button{
+    flex: 1;
+}

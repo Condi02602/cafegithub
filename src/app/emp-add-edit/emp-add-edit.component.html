@@ -1,0 +1,73 @@
+<div mat-dialog-title>
+    <h1>Employee Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div fxLayout="row">
+            <mat-form-field appearance="outline">
+                <mat-label>chef Name</mat-label>
+                <input matInput type="text" placeholder="conrad" formControlName="chefName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>waiter Name</mat-label>
+                <input matInput type="text" placeholder="aruldas" formControlName="waiterName">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <mat-form-field appearance="outline">
+                <mat-label>manager name</mat-label>
+                <input matInput type="text" placeholder="conrad" formControlName="managerName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+        <div fxLayout="row">
+            <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+                <mat-radio-button value="other">other</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div fxLayout="row">
+
+            <mat-form-field appearance="outline">
+                <mat-label>education</mat-label>
+                <mat-select formControlName="education">
+                    <mat-option *ngFor="let education of education" [value]="education">
+                        {{education}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>status</mat-label>
+                <mat-select formControlName="status">
+                    <mat-option *ngFor="let status of status" [value]="status">
+                        {{status}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Experience</mat-label>
+                <input matInput type="number" placeholder="2 years" type="number" formControlName="experience">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Salary</mat-label>
+                <input matInput type="number" placeholder="250000" type="number" formControlName="salary">
+                <mat-hint>In Rupees</mat-hint>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update' : 'Save'}}</button>
+    </div>
+</form>

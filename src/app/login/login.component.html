@@ -1,0 +1,43 @@
+<div mat-dialog-title>
+  <h1>Login Form</h1>
+</div>
+<form [formGroup]="loginform" >
+  <div mat-dialog-content class="content">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="conrad@gmail.com" formControlName="email">
+        <mat-error *ngIf="loginform.controls.email.touched && loginform.controls.email.invalid">
+          <span *ngIf="loginform.controls.email.errors.required">This field is mandatory.</span>
+          <span *ngIf="loginform.controls.email.errors.pattern">This field is invalid.</span>
+        </mat-error>
+    </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          type="password"
+          required
+          [type]="password ? 'password' : 'text'"
+        />
+        <button
+          type="button"
+          mat-icon-button
+          matSuffix
+          (click)="password = !password"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="password"
+        >
+          <mat-icon>{{ password ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+        <mat-error *ngIf="loginform.controls.password.touched && loginform.controls.password.invalid">
+          <span *ngIf="loginform.controls.password.errors.required">This field is mandatory.</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" [disabled]="loginform.invalid">Login</button>
+</div></form>

@@ -1,0 +1,22 @@
+<div class="sidebar-header">
+    <img src="../../../assets/images/cafeimg.jpg" alt="" [width]="profilePicSize()" [height]="profilePicSize()">
+    <div class="header-text" [class.hide-header-text]="sidebarCollapsed()">
+        <h2>your channel</h2>
+        <p>conrad</p>
+    </div>
+</div>
+<mat-nav-list>
+        <!-- <a mat-list-item 
+        class="menu-item" *ngFor="let item of menuItems()" [routerLink]="item.route" routerLinkActive="selected-menu-item" #rla="routerLinkActive" [activated]="rla.isActive">
+            <mat-icon [fontSet]="rla.isActive ? 'material-icons' : 'material-icons-outlined'" matListItemIcon>{{item.icon}}</mat-icon>
+            <span matListItemIcon *ngIf="!sidebarCollapsed()">{{item.label}}</span>
+        </a> -->
+        <ul>
+            <li class="sidebar-menu-item active">
+            <a routerLink="./dashboard" href="#">
+                <i class="ri-dashboard-line sidebar-menu-item-icon"></i>
+                Dashboard
+            </a>
+        </li>
+        </ul>
+</mat-nav-list>

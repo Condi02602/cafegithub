@@ -1,0 +1,12 @@
+.navbar{
+    background-color:#a1887f;
+    padding: 1%;
+}
+#cont1{
+    background-image: url(../../assets/images/cafeimg.jpg);
+    background-size: cover;
+    background-position: center center;
+    
+}
+
+  
